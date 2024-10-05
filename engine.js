@@ -1,5 +1,4 @@
 import React from 'react';
-import { register } from 'node:module';
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 
 let staticMarkup = true;
@@ -52,9 +51,9 @@ export default {
 /**
  * Set up babel for the action!
  */
-function initBabelHook() {
+async function initBabelHook() {
     setLocalNodePathForBabel();
-    register('./hook/babel.js', import.meta.url);
+    await import('./hook/babel.js');
 }
 
 /**
